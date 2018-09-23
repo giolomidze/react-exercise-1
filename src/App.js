@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import logo from './logo.svg';
+import { Movie } from './Movie';
+import { User } from './User';
 
 /*
 Use React and the data below to display a list of users alongside their favorite movies.
@@ -74,7 +76,7 @@ const users = {
   },
 };
 
-const movies = {
+      const movies = {
   1: {
     id: 1,
     name: 'Planet Earth 1',
@@ -106,6 +108,12 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>Favorite Movies</h2>
+ <ol>
+        {profiles.map(profile => (
+              <li key={profile.id}>
+		      <User user={users[`${profile.userID}`]} />'s favorite movie is <Movie movie={movies[`${profile.favoriteMovieID}`]} />
+			</li>
+             ))}</ol>
       </div>
     );
   }
